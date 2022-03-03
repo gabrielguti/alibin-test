@@ -9,6 +9,7 @@
   height: 20px;
   width: 20px;
   margin: 0;
+  cursor: pointer;
 }
 #badge {
   color: rgba(93, 152, 189, 0.904);
@@ -53,6 +54,73 @@ tr {
   font-family: "Bebas Neue", cursive, sans-serif;
   text-transform: uppercase;
 }
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+.checkbox input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.checkbox label {
+  position: relative;
+  padding-left: 2.2em;
+  display: inline-block;
+  cursor: pointer;
+}
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5em;
+  width: 1.5em;
+  background: #fff;
+  margin-right: 0.5em;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  border: 2px solid rgba(92, 222, 255, 0.993);
+  border-radius: 5px;
+}
+.checkbox label::after {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 0.75em;
+  transform: translate(-50%, -50%);
+  font-size: 1.1em;
+  font-weight: bolder;
+  color: white;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.checkbox input:checked + label::before {
+  border: 2px solid rgba(92, 222, 255, 0.993);
+  background-color: rgba(92, 222, 255, 0.993);
+  border-radius: 6px;
+}
+.checkbox input:checked + label::after {
+  opacity: 1;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.modal-body p {
+  margin-bottom: 2px;
+  font-weight: bolder;
+}
+
 @media screen and (min-width: 650px) {
   .table-responsive {
     justify-content: center;

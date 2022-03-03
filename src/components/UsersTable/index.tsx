@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { UseUserDataContext } from "../../provider/usersProvider";
 import Table from "react-bootstrap/Table";
 import "./style.css";
+import { Modal } from "react-bootstrap";
 const UsersTable = () => {
   const { getUsers, userList } = UseUserDataContext();
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -18,7 +20,7 @@ const UsersTable = () => {
           <th>Email</th>
           <th>Cliente</th>
           <th>Perfil de acesso</th>
-          <th id="three-dots-box">
+          <th id="three-dots-box" onClick={() => setModalShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -27,6 +29,43 @@ const UsersTable = () => {
               <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
             </svg>
           </th>
+          <Modal
+            size="sm"
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            aria-labelledby="example-modal-sizes-title-sm"
+          >
+            <Modal.Header closeButton />
+            <Modal.Body>
+              <p>Linhas por página</p>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" checked readOnly />
+                <label htmlFor="chk1">Padrão</label>
+              </div>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" readOnly />
+                <label htmlFor="chk1">50 linhas</label>
+              </div>
+              <hr />
+              <p>Colunas</p>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" readOnly checked />
+                <label htmlFor="chk1">Usuário</label>
+              </div>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" readOnly checked />
+                <label htmlFor="chk1">E-mail</label>
+              </div>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" readOnly checked />
+                <label htmlFor="chk1">Cliente</label>
+              </div>
+              <div className="checkbox">
+                <input type="checkbox" className="checkbox" readOnly checked />
+                <label htmlFor="chk1">Perfil de acesso</label>
+              </div>
+            </Modal.Body>
+          </Modal>
         </tr>
       </thead>
       {userList ? (
