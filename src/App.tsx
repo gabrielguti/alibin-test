@@ -1,7 +1,7 @@
 import React from "react";
-
+import UsersTable from "./components/UsersTable";
 function App() {
-  return <div className="App"></div>;
+  return <UsersTable />;
 }
 
 export default App;
