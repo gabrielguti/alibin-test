@@ -6,10 +6,10 @@ import { Modal } from "react-bootstrap";
 const UsersTable = () => {
   const { getUsers, userList } = UseUserDataContext();
   const [modalShow, setModalShow] = useState<boolean>(false);
-  const [name, setName] = useState(true);
-  const [email, setEmail] = useState(true);
-  const [client, setClient] = useState(true);
-  const [username, setUsername] = useState(true);
+  const [name, setName] = useState<boolean>(true);
+  const [email, setEmail] = useState<boolean>(true);
+  const [client, setClient] = useState<boolean>(true);
+  const [username, setUsername] = useState<boolean>(true);
 
   useEffect(() => {
     getUsers();
