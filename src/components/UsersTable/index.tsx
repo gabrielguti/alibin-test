@@ -117,14 +117,18 @@ const UsersTable = () => {
             return (
               <tr key={item.id}>
                 {name ? (
-                  <th>{item.name}</th>
+                  <th>
+                    <p>{item.name}</p>
+                  </th>
                 ) : (
                   <th>
                     <Trace />
                   </th>
                 )}
                 {email ? (
-                  <th>{item.email}</th>
+                  <th>
+                    <p>{item.email}</p>
+                  </th>
                 ) : (
                   <th>
                     {" "}
@@ -132,7 +136,9 @@ const UsersTable = () => {
                   </th>
                 )}
                 {client ? (
-                  <th>{item.company.name}</th>
+                  <th>
+                    <p>{item.company.name}</p>
+                  </th>
                 ) : (
                   <th>
                     {" "}
@@ -141,7 +147,7 @@ const UsersTable = () => {
                 )}
                 {username ? (
                   <th>
-                    <span id="badge">{item.username}</span>
+                    <p id="badge">{item.username}</p>
                   </th>
                 ) : (
                   <th>

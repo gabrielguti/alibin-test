@@ -12,11 +12,16 @@
   cursor: pointer;
 }
 #badge {
-  color: rgba(93, 152, 189, 0.904);
-  background-color: rgba(195, 241, 252, 0.911);
+  color: rgba(90, 138, 168, 0.904);
+  background-color: rgba(176, 239, 255, 0.747);
   font-size: x-small;
   padding: 4px 4px;
   border-radius: 6px;
+  width: 60%;
+}
+
+th {
+  vertical-align: middle;
 }
 svg {
   color: rgb(21, 151, 184);
@@ -37,7 +42,7 @@ table {
   display: flex;
 }
 tbody tr:hover {
-  background-color: rgba(219, 232, 240, 0.808);
+  background-color: rgba(215, 244, 250, 0.596);
 }
 tbody {
   color: rgba(128, 128, 128, 0.863);
@@ -133,7 +138,6 @@ tr > :not(:last-child) {
 tr > :last-child {
   min-width: 100px;
 }
-
 @media screen and (min-width: 630px) {
   table {
     max-width: 90vw;
