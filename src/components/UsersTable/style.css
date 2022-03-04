@@ -29,9 +29,9 @@ thead {
   color: rgba(128, 128, 128, 0.863);
 }
 table {
-  max-width: 80vw;
   border-radius: 2px;
   box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.849);
+  height: 70vh;
 }
 .table-responsive {
   display: flex;
@@ -120,11 +120,37 @@ tr {
   margin-bottom: 2px;
   font-weight: bolder;
 }
+.table-responsive {
+  margin-top: 2vh;
+  padding: 5px;
+}
+tr > :last-child svg {
+  cursor: not-allowed;
+}
+tr > :not(:last-child) {
+  min-width: 215px;
+}
+tr > :last-child {
+  min-width: 100px;
+}
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 630px) {
+  table {
+    max-width: 90vw;
+  }
+}
+@media screen and (min-width: 925px) {
   .table-responsive {
     justify-content: center;
-    margin-top: 2vh;
-    padding: 5px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  table {
+    max-width: 80vw;
+  }
+}
+@media screen and (min-width: 1900px) {
+  table {
+    max-width: 70vw;
   }
 }
