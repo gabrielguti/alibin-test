@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { UseUserDataContext } from "../../provider/usersProvider";
-import Table from "react-bootstrap/Table";
-import "./style.css";
 import { Modal } from "react-bootstrap";
 import { ReactComponent as Trace } from "../../assets/svg/trace.svg";
 import { ReactComponent as Pen } from "../../assets/svg/pen.svg";
 import { ReactComponent as Delete } from "../../assets/svg/delete.svg";
 import { ReactComponent as Dots } from "../../assets/svg/dots.svg";
-import Error from "../../assets/svg/warning.svg";
+import Table from "react-bootstrap/Table";
+import ErrorCard from "../ErrorComponent";
+import "./style.css";
+
 const UsersTable = () => {
-  const { getUsers, userList } = UseUserDataContext();
+  const { getUsers, userList, requestError } = UseUserDataContext();
   const [modalShow, setModalShow] = useState<boolean>(false);
   const [name, setName] = useState<boolean>(true);
   const [email, setEmail] = useState<boolean>(true);
@@ -20,10 +21,9 @@ const UsersTable = () => {
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <>
-      {userList.length > 0 ? (
+      {!requestError ? (
         <Table striped responsive>
           <thead>
             <tr>
@@ -162,22 +162,7 @@ const UsersTable = () => {
           </tbody>
         </Table>
       ) : (
-        <div className="error-box">
-          <div className="error-info">
-            <img src={Error} alt="error-system" />
-            <h1>Ops! Algo deu errado :/</h1>
-            <p>
-              Não foi possível acessar os dados. Tente novamente mais tarde.
-            </p>
-            <p>Possíveis problemas:</p>
-            <ul>
-              <li>Base de dados fora do ar;</li>
-              <li>Navegador instável;</li>
-              <li>Problema interno da aplicação;</li>
-            </ul>
-            <button onClick={() => window.location.reload()}>Recarregar</button>
-          </div>
-        </div>
+        <ErrorCard />
       )}
     </>
   );

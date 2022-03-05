@@ -6,6 +6,7 @@ interface UserDataProviderProps {
 interface UserDataContextProps {
   getUsers: () => void;
   userList: UserDataProps[];
+  requestError: boolean;
 }
 interface UserDataProps {
   id: number;
@@ -39,16 +40,25 @@ export const UserDataProvider = ({ children }: UserDataProviderProps) => {
   const [userList, setUserList] = useState<UserDataProps[]>(
     [] as UserDataProps[]
   );
+  const [requestError, setRequestError] = useState<boolean>(false);
 
   const getUsers = () => {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((response) => setUserList(response))
+      .then((response) => {
+        if (response.status !== 200) {
+          setRequestError(true);
+          return;
+        }
+        response.json().then((response) => {
+          setUserList(response);
+          setRequestError(false);
+        });
+      })
       .catch((error) => console.log(error));
   };
 
   return (
-    <UserDataContext.Provider value={{ getUsers, userList }}>
+    <UserDataContext.Provider value={{ getUsers, userList, requestError }}>
       {children}
     </UserDataContext.Provider>
   );
