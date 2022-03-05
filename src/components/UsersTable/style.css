@@ -1,3 +1,67 @@
+html {
+  background-color: rgba(245, 245, 245, 0.466);
+}
+table {
+  animation: gradient 1.2s;
+}
+th {
+  vertical-align: middle;
+}
+th p {
+  margin-bottom: 0;
+  color: rgba(128, 128, 128, 0.863);
+}
+svg {
+  color: rgb(21, 151, 184);
+  width: 16px;
+  height: 16px;
+  margin: 10px;
+  margin-top: 3px;
+}
+thead {
+  color: rgba(128, 128, 128, 0.863);
+}
+thead tr {
+  height: 60px;
+}
+table {
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.849);
+  min-height: 70vh;
+}
+.table-responsive {
+  display: flex;
+}
+
+tbody tr:hover {
+  background-color: rgba(215, 244, 250, 0.596);
+}
+tbody {
+  border: 0;
+}
+tbody tr {
+  border: 1px transparent;
+}
+table > :first-child {
+  border: 2px solid rgb(231, 231, 231);
+}
+tr {
+  font-size: 12px;
+  font-family: "Bebas Neue", cursive, sans-serif;
+  text-transform: uppercase;
+}
+tr > :last-child svg {
+  cursor: not-allowed;
+}
+tr > :not(:last-child) {
+  min-width: 216px;
+}
+tr > :last-child {
+  min-width: 100px;
+}
+#root {
+  background-color: rgba(245, 245, 245, 0.466);
+}
 #delete {
   color: red;
 }
@@ -15,49 +79,9 @@
   color: rgba(90, 138, 168, 0.904);
   background-color: rgba(176, 239, 255, 0.747);
   font-size: x-small;
-  padding: 4px 4px;
+  padding: 7px 7px;
   border-radius: 6px;
   width: 60%;
-}
-
-th {
-  vertical-align: middle;
-}
-svg {
-  color: rgb(21, 151, 184);
-  width: 16px;
-  height: 16px;
-  margin: 10px;
-  margin-top: 3px;
-}
-thead {
-  color: rgba(128, 128, 128, 0.863);
-}
-table {
-  border-radius: 2px;
-  box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.849);
-  height: 70vh;
-}
-.table-responsive {
-  display: flex;
-}
-tbody tr:hover {
-  background-color: rgba(215, 244, 250, 0.596);
-}
-tbody {
-  color: rgba(128, 128, 128, 0.863);
-  border: 0;
-}
-tbody tr {
-  border: 1px transparent;
-}
-table > :first-child {
-  border: 2px solid rgb(231, 231, 231);
-}
-tr {
-  font-size: 12px;
-  font-family: "Bebas Neue", cursive, sans-serif;
-  text-transform: uppercase;
 }
 .checkbox {
   display: inline-block;
@@ -129,23 +153,80 @@ tr {
   margin-top: 2vh;
   padding: 5px;
 }
-tr > :last-child svg {
-  cursor: not-allowed;
+@keyframes gradient {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-tr > :not(:last-child) {
-  min-width: 215px;
+.error-box {
+  height: 40vh;
+  margin-top: 20vh;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-left: 5%;
+  background-color: rgba(220, 220, 220, 0.144);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0px 0px 8px rgba(128, 128, 128, 0.521);
+  animation: gradient 1.5s;
 }
-tr > :last-child {
-  min-width: 100px;
+.error-info {
+  font-family: "Bebas Neue", cursive, sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  color: rgba(128, 128, 128, 0.863);
+}
+.error-info h1 {
+  color: rgb(128, 128, 128);
+}
+.error-info img {
+  width: 10%;
+  margin-left: 45%;
+  margin-bottom: 10px;
+}
+.error-info button {
+  background-color: rgba(128, 128, 128, 0.281);
+  align-self: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  width: 80%;
+  color: rgb(83, 83, 83);
+  cursor: pointer;
+}
+.error-info button:hover {
+  background-color: rgb(221, 221, 221);
 }
 @media screen and (min-width: 630px) {
   table {
     max-width: 90vw;
   }
 }
+@media screen and (min-width: 820px) {
+  .error-box {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
 @media screen and (min-width: 925px) {
   .table-responsive {
     justify-content: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .error-info button {
+    width: 25%;
+  }
+  .error-box {
+    width: 40%;
+    margin-left: 30%;
   }
 }
 @media screen and (min-width: 1600px) {
