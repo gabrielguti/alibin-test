@@ -40,7 +40,7 @@ yarn start
 # Features
 
 - [x] Filtrar por colunas: Usuário, E-mail, Cliente ou Perfil de acesso;
-- Features de deleção, edição de usuário e filtrar as linhas por página sãp apenas para visualização devido a limitação das rotas existentes da API. Lembrando que esta aplicação é apenas uma simulação :)
+- Features de deleção, edição de usuário e filtrar as linhas por página são apenas para visualização devido a limitação das rotas existentes da API. Lembrando que esta aplicação é apenas uma simulação :)
 
 ## Tests
 
