@@ -24,17 +24,18 @@ const UsersTable = () => {
   return (
     <>
       {!requestError ? (
-        <Table striped responsive>
+        <Table striped responsive data-testid="table">
           <thead>
-            <tr>
+            <tr data-testid="table-lines">
               <th>Usuário</th>
               <th>Email</th>
               <th>Cliente</th>
               <th>Perfil de acesso</th>
               <th className="edit-column" id="three-dots-box">
-                <Dots onClick={() => setModalShow(true)} />
+                <Dots data-testid="dots-button" onClick={() => setModalShow(true)} />
               </th>
               <Modal
+                data-testid="checkbox-modal"
                 size="sm"
                 show={modalShow}
                 onHide={() => setModalShow(false)}
@@ -109,10 +110,10 @@ const UsersTable = () => {
               </Modal>
             </tr>
           </thead>
-          <tbody>
+          <tbody data-testid="table-body">
             {userList.map((item) => {
               return (
-                <tr key={item.id}>
+                <tr data-testid="table-lines" key={item.id}>
                   {name ? (
                     <th>
                       <p>{item.name}</p>
