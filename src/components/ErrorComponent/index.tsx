@@ -3,7 +3,7 @@ import "./style.css";
 
 const ErrorCard = () => {
   return (
-    <div className="error-box">
+    <div data-testid="error-component" className="error-box">
       <div className="error-info">
         <img src={Error} alt="error-system" />
         <h1>Ops! Algo deu errado :/</h1>
@@ -14,7 +14,12 @@ const ErrorCard = () => {
           <li>Navegador instável;</li>
           <li>Problema interno da aplicação;</li>
         </ul>
-        <button onClick={() => window.location.reload()}>Recarregar</button>
+        <button
+          data-testid="reload-button"
+          onClick={() => window.location.reload()}
+        >
+          Recarregar
+        </button>
       </div>
     </div>
   );
