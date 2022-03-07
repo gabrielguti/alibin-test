@@ -26,7 +26,6 @@ const UsersTable = () => {
     return function cleanup() {
       abortController.abort();
     };
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -136,7 +135,7 @@ const UsersTable = () => {
                     </th>
                   ) : (
                     <th>
-                      <Trace data-testid="trace" />
+                      <Trace />
                     </th>
                   )}
                   {email ? (
@@ -146,7 +145,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace data-testid="trace" />
+                      <Trace />
                     </th>
                   )}
                   {client ? (
@@ -156,7 +155,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace data-testid="trace" />
+                      <Trace />
                     </th>
                   )}
                   {username ? (
@@ -166,7 +165,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace data-testid="trace" />
+                      <Trace />
                     </th>
                   )}
                   <th className="edit-column">
