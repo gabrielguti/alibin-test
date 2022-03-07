@@ -25,11 +25,11 @@ yarn
 yarn start
 ```
 
-[Fake API utilizada](#https://jsonplaceholder.typicode.com/) -> `/users`
+Fake API utilizada https://jsonplaceholder.typicode.com/ -> `/users`
 
 # Tecnologias utilizadas
 
-- React JS (Typescript, hooks e ContextAPI);
+- React JS (Typescript, Hooks e ContextAPI);
 - React Bootstrap;
 - CSS
 - HTML
