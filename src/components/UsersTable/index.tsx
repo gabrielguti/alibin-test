@@ -18,9 +18,18 @@ const UsersTable = () => {
   const [username, setUsername] = useState<boolean>(true);
 
   useEffect(() => {
-    getUsers();
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    getUsers(signal);
+
+    return function cleanup() {
+      abortController.abort();
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       {!requestError ? (
@@ -32,7 +41,10 @@ const UsersTable = () => {
               <th>Cliente</th>
               <th>Perfil de acesso</th>
               <th className="edit-column" id="three-dots-box">
-                <Dots data-testid="dots-button" onClick={() => setModalShow(true)} />
+                <Dots
+                  data-testid="dots-button"
+                  onClick={() => setModalShow(true)}
+                />
               </th>
               <Modal
                 data-testid="checkbox-modal"
@@ -73,6 +85,7 @@ const UsersTable = () => {
                       id="chk3"
                       checked={name ? true : false}
                       onChange={() => setName(!name)}
+                      data-testid="check1"
                     />
                     <label htmlFor="chk3">Usuário</label>
                   </div>
@@ -83,6 +96,7 @@ const UsersTable = () => {
                       id="chk4"
                       checked={email ? true : false}
                       onChange={() => setEmail(!email)}
+                      data-testid="check2"
                     />
                     <label htmlFor="chk4">E-mail</label>
                   </div>
@@ -93,6 +107,7 @@ const UsersTable = () => {
                       id="chk5"
                       checked={client ? true : false}
                       onChange={() => setClient(!client)}
+                      data-testid="check3"
                     />
                     <label htmlFor="chk5">Cliente</label>
                   </div>
@@ -103,6 +118,7 @@ const UsersTable = () => {
                       id="chk6"
                       checked={username ? true : false}
                       onChange={() => setUsername(!username)}
+                      data-testid="check4"
                     />
                     <label htmlFor="chk6">Perfil de acesso</label>
                   </div>
@@ -120,7 +136,7 @@ const UsersTable = () => {
                     </th>
                   ) : (
                     <th>
-                      <Trace />
+                      <Trace data-testid="trace" />
                     </th>
                   )}
                   {email ? (
@@ -130,7 +146,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace />
+                      <Trace data-testid="trace" />
                     </th>
                   )}
                   {client ? (
@@ -140,7 +156,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace />
+                      <Trace data-testid="trace" />
                     </th>
                   )}
                   {username ? (
@@ -150,7 +166,7 @@ const UsersTable = () => {
                   ) : (
                     <th>
                       {" "}
-                      <Trace />
+                      <Trace data-testid="trace" />
                     </th>
                   )}
                   <th className="edit-column">

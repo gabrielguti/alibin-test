@@ -1,10 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-
 interface UserDataProviderProps {
   children: ReactNode;
 }
 interface UserDataContextProps {
-  getUsers: () => void;
+  getUsers: (signal: AbortSignal) => void;
   userList: UserDataProps[];
   requestError: boolean;
 }
@@ -42,8 +41,8 @@ export const UserDataProvider = ({ children }: UserDataProviderProps) => {
   );
   const [requestError, setRequestError] = useState<boolean>(false);
 
-  const getUsers = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+  const getUsers = (signal: AbortSignal) => {
+    fetch("https://jsonplaceholder.typicode.com/users", { signal: signal })
       .then((response) => {
         if (response.status !== 200) {
           setRequestError(true);
